@@ -1,0 +1,6 @@
+flask
+yolov5
+rdflib
+sparqlwrapper 
+owlready2 
+pyshacl

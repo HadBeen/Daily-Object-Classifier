@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Results</title>
+</head>
+<body>
+    <h1>Classification and RDF Description Results</h1>
+
+    <h2>Classification Results</h2>
+    <ul>
+        {% for detail in details %}
+            <li>
+                <strong>Class:</strong> {{ detail.class }}<br>
+                <strong>Description:</strong>
+                <ul>
+                    {% for property, value in detail.properties.items() %}
+                        <li>{{ property }}: {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Upload</a>
+</body>
+</html>

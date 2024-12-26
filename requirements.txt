@@ -4,3 +4,4 @@ rdflib
 sparqlwrapper 
 owlready2 
 pyshacl
+Pillow

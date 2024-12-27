@@ -1,0 +1,58 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_bone> rdfs:label "a bone" .
+
+<http://example.org/a_canine> rdfs:label "a canine" .
+
+<http://example.org/a_kennel> rdfs:label "a kennel" .
+
+<http://example.org/a_loyal_friend> rdfs:label "a loyal friend" .
+
+<http://example.org/animal> rdfs:label "animal" .
+
+<http://example.org/bark> rdfs:label "bark" .
+
+<http://example.org/be_a_pet> rdfs:label "be a pet" .
+
+<http://example.org/be_petted> rdfs:label "be petted" .
+
+<http://example.org/canine> rdfs:label "canine" .
+
+<http://example.org/companionship> rdfs:label "companionship" .
+
+<http://example.org/dog> a owl:Class ;
+    rdfs:label "dog" ;
+    rdfs:seeAlso <http://example.org/a_bone>,
+        <http://example.org/a_canine>,
+        <http://example.org/a_kennel>,
+        <http://example.org/a_loyal_friend>,
+        <http://example.org/animal>,
+        <http://example.org/bark>,
+        <http://example.org/be_a_pet>,
+        <http://example.org/be_petted>,
+        <http://example.org/canine>,
+        <http://example.org/companionship>,
+        <http://example.org/dog>,
+        <http://example.org/four_legs>,
+        <http://example.org/guard_your_house>,
+        <http://example.org/guide_a_blind_person>,
+        <http://example.org/mammal>,
+        <http://example.org/pet>,
+        <http://example.org/run>,
+        <http://example.org/the_table> .
+
+<http://example.org/four_legs> rdfs:label "four legs" .
+
+<http://example.org/guard_your_house> rdfs:label "guard your house" .
+
+<http://example.org/guide_a_blind_person> rdfs:label "guide a blind person" .
+
+<http://example.org/mammal> rdfs:label "mammal" .
+
+<http://example.org/pet> rdfs:label "pet" .
+
+<http://example.org/run> rdfs:label "run" .
+
+<http://example.org/the_table> rdfs:label "the table" .
+

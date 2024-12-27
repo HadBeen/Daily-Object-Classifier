@@ -4,13 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Image - Object Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .drop-zone {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px auto;
+            cursor: pointer;
+            color: #777;
+        }
+        .drop-zone.dragover {
+            border-color: #333;
+            color: #333;
+        }
+        .input-container {
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Object Classifier and RDF Description</h1>
-    <form action="/" method="POST" enctype="multipart/form-data">
-        <label for="file">Upload an image:</label>
-        <input type="file" id="file" name="file" accept="image/*" required>
-        <button type="submit">Classify</button>
+
+    <!-- Drag and Drop Upload -->
+    <div class="drop-zone" id="dropZone">
+        Drag and drop an image here, or click to select a file.
+    </div>
+    <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;">
+
+    <!-- URL Upload -->
+    <div class="input-container">
+        <label for="urlInput">Or enter an image URL:</label><br>
+        <input type="url" id="urlInput" name="url" placeholder="https://example.com/image.jpg" style="width: 100%; padding: 10px;" required>
+        <button type="button" id="urlSubmit">Submit URL</button>
+    </div>
+
+    <!-- Form -->
+    <form id="uploadForm" action="/" method="POST" enctype="multipart/form-data" style="display: none;">
+        <input type="file" id="hiddenFileInput" name="file" accept="image/*">
+        <input type="url" id="hiddenUrlInput" name="url">
+        <button type="submit">Submit</button>
     </form>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const urlInput = document.getElementById('urlInput');
+        const uploadForm = document.getElementById('uploadForm');
+        const hiddenFileInput = document.getElementById('hiddenFileInput');
+        const hiddenUrlInput = document.getElementById('hiddenUrlInput');
+        const urlSubmit = document.getElementById('urlSubmit');
+
+        // Drag-and-Drop Functionality
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = event.dataTransfer.files[0];
+            if (file) {
+                hiddenFileInput.files = event.dataTransfer.files;
+                uploadForm.submit();
+            }
+        });
+
+        // File Input Change Event
+        fileInput.addEventListener('change', () => {
+            hiddenFileInput.files = fileInput.files;
+            uploadForm.submit();
+        });
+
+        // URL Submission
+        urlSubmit.addEventListener('click', () => {
+            const url = urlInput.value.trim();
+            if (url) {
+                hiddenUrlInput.value = url;
+                uploadForm.submit();
+            } else {
+                alert('Please enter a valid URL.');
+            }
+        });
+    </script>
 </body>
 </html>

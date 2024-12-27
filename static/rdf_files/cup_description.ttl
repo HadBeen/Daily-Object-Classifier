@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_dishwasher> rdfs:label "a dishwasher" .
+
+<http://example.org/a_shelf> rdfs:label "a shelf" .
+
+<http://example.org/a_table> rdfs:label "a table" .
+
+<http://example.org/cup> a owl:Class ;
+    rdfs:label "cup" ;
+    rdfs:seeAlso <http://example.org/a_dishwasher>,
+        <http://example.org/a_shelf>,
+        <http://example.org/a_table>,
+        <http://example.org/cup>,
+        <http://example.org/drinking>,
+        <http://example.org/hold_liquids>,
+        <http://example.org/hole>,
+        <http://example.org/measuring_liquids> .
+
+<http://example.org/drinking> rdfs:label "drinking" .
+
+<http://example.org/hold_liquids> rdfs:label "hold liquids" .
+
+<http://example.org/hole> rdfs:label "hole" .
+
+<http://example.org/measuring_liquids> rdfs:label "measuring liquids" .
+

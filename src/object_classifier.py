@@ -1,22 +1,37 @@
-from PIL import Image
-import numpy as np
 import torch
-from yolov5 import YOLOv5  # Assuming this is your YOLOv5 model import
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+import random
 
 def classify_image(image_file):
     model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5s.pt')
+    
     # Read the uploaded image
-    image = Image.open(image_file)  # Use Pillow to open the file
-    image_array = np.array(image)  # Convert to a NumPy array
-
-    # Ensure the image is in the right format for YOLOv5
-    if len(image_array.shape) == 2:  # Grayscale to RGB
-        image_array = np.stack((image_array,) * 3, axis=-1)
-    elif image_array.shape[2] == 4:  # RGBA to RGB
-        image_array = image_array[:, :, :3]
-
-    # Use YOLO model to classify the image
+    image = Image.open(image_file).convert("RGB")
+    image_array = np.array(image)
+    
+    # Run the YOLO model
     results = model(image_array)
-    classes = results.pred[0]  # Adjust based on YOLO's output format
-    return classes
+    
+    # Draw detections on the image
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype("arial.ttf", size=20)  # Replace with a path to a TTF font
+    
+    detections = []
+    for idx, result in enumerate(results.xyxy[0]):  # Enumerate detections for numbering
+        class_id, confidence, xmin, ymin, xmax, ymax = result[5], result[4], result[0], result[1], result[2], result[3]
+        label = f"{idx + 1}: {results.names[int(class_id)]}"
+        
+        random_color = tuple(random.randint(0, 255) for _ in range(3))
+        draw.rectangle([xmin, ymin, xmax, ymax], outline=random_color, width=3)
+        draw.text((xmin, ymin), label, fill=random_color, font=font)
+        
+        detections.append({
+            "id": idx + 1,
+            "class": results.names[int(class_id)],
+            "confidence": float(confidence),
+            "bbox": [int(xmin), int(ymin), int(xmax), int(ymax)]
+        })
+    
+    return image, detections
 

@@ -1,0 +1,55 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_headache> rdfs:label "a headache" .
+
+<http://example.org/a_person> rdfs:label "a person" .
+
+<http://example.org/be_diseased> rdfs:label "be diseased" .
+
+<http://example.org/board_a_plane> rdfs:label "board a plane" .
+
+<http://example.org/break_a_leg> rdfs:label "break a leg" .
+
+<http://example.org/clothing> rdfs:label "clothing" .
+
+<http://example.org/compliments> rdfs:label "compliments" .
+
+<http://example.org/cross_a_street> rdfs:label "cross a street" .
+
+<http://example.org/human> rdfs:label "human" .
+
+<http://example.org/laugh_at_a_joke> rdfs:label "laugh at a joke" .
+
+<http://example.org/people> rdfs:label "people" .
+
+<http://example.org/person> a owl:Class ;
+    rdfs:label "person" ;
+    rdfs:seeAlso <http://example.org/a_headache>,
+        <http://example.org/a_person>,
+        <http://example.org/be_diseased>,
+        <http://example.org/board_a_plane>,
+        <http://example.org/break_a_leg>,
+        <http://example.org/clothing>,
+        <http://example.org/compliments>,
+        <http://example.org/cross_a_street>,
+        <http://example.org/human>,
+        <http://example.org/laugh_at_a_joke>,
+        <http://example.org/people>,
+        <http://example.org/person>,
+        <http://example.org/society>,
+        <http://example.org/thank_another_person>,
+        <http://example.org/voice_an_opinion>,
+        <http://example.org/water_a_plant>,
+        <http://example.org/wind_clock> .
+
+<http://example.org/society> rdfs:label "society" .
+
+<http://example.org/thank_another_person> rdfs:label "thank another person" .
+
+<http://example.org/voice_an_opinion> rdfs:label "voice an opinion" .
+
+<http://example.org/water_a_plant> rdfs:label "water a plant" .
+
+<http://example.org/wind_clock> rdfs:label "wind clock" .
+

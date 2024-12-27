@@ -7,24 +7,13 @@
 </head>
 <body>
     <h1>Classification Results</h1>
+
     <h2>Detected Objects</h2>
     <ul>
         {% for detection in detections %}
         <li>
             <strong>ID {{ detection.id }}:</strong> {{ detection.class }} 
             (Confidence: {{ detection.confidence }}%)
-            <ul>
-                {% if concept_details[detection.class] %}
-                <li><strong>Description:</strong></li>
-                <ul>
-                    {% for desc in concept_details[detection.class] %}
-                    <li>{{ desc }}</li>
-                    {% endfor %}
-                </ul>
-                {% else %}
-                <li>No descriptions available for this object.</li>
-                {% endif %}
-            </ul>
         </li>
         {% endfor %}
     </ul>
@@ -32,6 +21,13 @@
     <h2>Annotated Image</h2>
     <img src="{{ image_path }}" alt="Annotated Image" style="max-width: 100%; border: 1px solid #ccc;">
     <br>
+
+    <h2>Preview of the RDF Turtle File</h2>
+    <pre style="background-color: #f4f4f4; padding: 10px; border: 1px solid #ccc; max-height: 300px; overflow-y: auto;">
+        {{ rdf_content }}
+    </pre>
+
+
     <a href="/">Back to Upload</a>
 </body>
 </html>

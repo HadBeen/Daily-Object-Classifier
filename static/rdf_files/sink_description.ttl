@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_house> rdfs:label "a house" .
+
+<http://example.org/a_sink> rdfs:label "a sink" .
+
+<http://example.org/sink> a owl:Class ;
+    rdfs:label "sink" ;
+    rdfs:seeAlso <http://example.org/a_house>,
+        <http://example.org/a_sink>,
+        <http://example.org/sink>,
+        <http://example.org/the_kitchen>,
+        <http://example.org/the_sink> .
+
+<http://example.org/the_kitchen> rdfs:label "the kitchen" .
+
+<http://example.org/the_sink> rdfs:label "the sink" .
+

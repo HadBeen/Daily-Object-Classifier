@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/Eating> rdfs:label "Eating" .
+
+<http://example.org/a_utensil> rdfs:label "a utensil" .
+
+<http://example.org/bowl> rdfs:label "bowl" .
+
+<http://example.org/dinner> rdfs:label "dinner" .
+
+<http://example.org/eating_ice_cream> rdfs:label "eating ice cream" .
+
+<http://example.org/lažica> rdfs:label "lažica" .
+
+<http://example.org/spoon> a owl:Class ;
+    rdfs:label "spoon" ;
+    rdfs:seeAlso <http://example.org/Eating>,
+        <http://example.org/a_utensil>,
+        <http://example.org/bowl>,
+        <http://example.org/dinner>,
+        <http://example.org/eating_ice_cream>,
+        <http://example.org/lažica>,
+        <http://example.org/spoon> .
+

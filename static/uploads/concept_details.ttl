@@ -1,0 +1,39 @@
+### sink ###
+static/rdf_files\sink_description.ttl
+sink_description.ttl
+### potted plant ###
+static/rdf_files\potted_plant_description.ttl
+potted_plant_description.ttl
+### bowl ###
+static/rdf_files\bowl_description.ttl
+bowl_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl
+### orange ###
+static/rdf_files\orange_description.ttl
+orange_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl
+### bowl ###
+static/rdf_files\bowl_description.ttl
+bowl_description.ttl
+### orange ###
+static/rdf_files\orange_description.ttl
+orange_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl
+### bowl ###
+static/rdf_files\bowl_description.ttl
+bowl_description.ttl
+### spoon ###
+static/rdf_files\spoon_description.ttl
+spoon_description.ttl

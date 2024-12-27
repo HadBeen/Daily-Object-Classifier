@@ -1,0 +1,40 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/Orange> rdfs:label "Orange" .
+
+<http://example.org/a_citrus_fruit> rdfs:label "a citrus fruit" .
+
+<http://example.org/a_color> rdfs:label "a color" .
+
+<http://example.org/a_colour> rdfs:label "a colour" .
+
+<http://example.org/a_peel> rdfs:label "a peel" .
+
+<http://example.org/citrus> rdfs:label "citrus" .
+
+<http://example.org/color> rdfs:label "color" .
+
+<http://example.org/fruit> rdfs:label "fruit" .
+
+<http://example.org/narandža> rdfs:label "narandža" .
+
+<http://example.org/orange> a owl:Class ;
+    rdfs:label "orange" ;
+    rdfs:seeAlso <http://example.org/Orange>,
+        <http://example.org/a_citrus_fruit>,
+        <http://example.org/a_color>,
+        <http://example.org/a_colour>,
+        <http://example.org/a_peel>,
+        <http://example.org/citrus>,
+        <http://example.org/color>,
+        <http://example.org/fruit>,
+        <http://example.org/narandža>,
+        <http://example.org/orange>,
+        <http://example.org/rind>,
+        <http://example.org/sweet> .
+
+<http://example.org/rind> rdfs:label "rind" .
+
+<http://example.org/sweet> rdfs:label "sweet" .
+

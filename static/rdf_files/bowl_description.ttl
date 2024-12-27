@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/bowl> a owl:Class ;
+    rdfs:label "bowl" ;
+    rdfs:seeAlso <http://example.org/bowl>,
+        <http://example.org/cricket>,
+        <http://example.org/hold_cereal>,
+        <http://example.org/hold_mush>,
+        <http://example.org/hold_peanuts>,
+        <http://example.org/hold_spice>,
+        <http://example.org/hold_sugar>,
+        <http://example.org/the_cupboard> .
+
+<http://example.org/cricket> rdfs:label "cricket" .
+
+<http://example.org/hold_cereal> rdfs:label "hold cereal" .
+
+<http://example.org/hold_mush> rdfs:label "hold mush" .
+
+<http://example.org/hold_peanuts> rdfs:label "hold peanuts" .
+
+<http://example.org/hold_spice> rdfs:label "hold spice" .
+
+<http://example.org/hold_sugar> rdfs:label "hold sugar" .
+
+<http://example.org/the_cupboard> rdfs:label "the cupboard" .
+

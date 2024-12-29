@@ -1,0 +1,81 @@
+@prefix ex: <http://example.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AtLocation rdfs:label "AtLocation" .
+
+ex:DerivedFrom rdfs:label "DerivedFrom" .
+
+ex:EtymologicallyDerivedFrom rdfs:label "EtymologicallyDerivedFrom" .
+
+ex:FormOf rdfs:label "FormOf" .
+
+ex:HasContext rdfs:label "HasContext" .
+
+ex:RelatedTo rdfs:label "RelatedTo" .
+
+ex:Synonym rdfs:label "Synonym" .
+
+ex:a_hole rdfs:label "a hole" ;
+    ex:AtLocation ex:a_donut .
+
+ex:bunyol rdfs:label "bunyol" ;
+    ex:RelatedTo ex:donut .
+
+ex:bánh_vòng rdfs:label "bánh vòng" ;
+    ex:RelatedTo ex:donut .
+
+ex:cruller rdfs:label "cruller" ;
+    ex:RelatedTo ex:donut .
+
+ex:donut_spare rdfs:label "donut spare" ;
+    ex:DerivedFrom ex:donut .
+
+ex:donutlike rdfs:label "donutlike" ;
+    ex:RelatedTo ex:donut .
+
+ex:donuts rdfs:label "donuts" ;
+    ex:FormOf ex:donut .
+
+ex:donutty rdfs:label "donutty" ;
+    ex:DerivedFrom ex:donut .
+
+ex:fánk rdfs:label "fánk" ;
+    ex:RelatedTo ex:donut .
+
+ex:krakeling rdfs:label "krakeling" ;
+    ex:RelatedTo ex:donut .
+
+ex:munk rdfs:label "munk" ;
+    ex:RelatedTo ex:donut .
+
+ex:sideshow rdfs:label "sideshow" ;
+    ex:RelatedTo ex:donut .
+
+ex:spudnut rdfs:label "spudnut" ;
+    ex:DerivedFrom ex:donut .
+
+ex:โดนัท rdfs:label "โดนัท" ;
+    ex:RelatedTo ex:donut .
+
+ex:ドーナツ rdfs:label "ドーナツ" ;
+    ex:EtymologicallyDerivedFrom ex:donut .
+
+ex:冬甩 rdfs:label "冬甩" ;
+    ex:EtymologicallyDerivedFrom ex:donut .
+
+ex:a_bakery rdfs:label "a bakery" .
+
+ex:a_donut rdfs:label "a donut" ;
+    ex:AtLocation ex:a_bakery .
+
+ex:doughnut rdfs:label "doughnut" ;
+    ex:FormOf ex:donut .
+
+ex:north_america rdfs:label "north america" .
+
+ex:donut a owl:Class ;
+    rdfs:label "donut" ;
+    ex:HasContext ex:north_america ;
+    ex:Synonym ex:doughnut .
+

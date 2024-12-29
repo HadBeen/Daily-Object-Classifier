@@ -1,0 +1,40 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/Paper> rdfs:label "Paper" .
+
+<http://example.org/a_book> rdfs:label "a book" .
+
+<http://example.org/a_bookshelf> rdfs:label "a bookshelf" .
+
+<http://example.org/a_classroom> rdfs:label "a classroom" .
+
+<http://example.org/a_writer> rdfs:label "a writer" .
+
+<http://example.org/book> a owl:Class ;
+    rdfs:label "book" ;
+    rdfs:seeAlso <http://example.org/Paper>,
+        <http://example.org/a_book>,
+        <http://example.org/a_bookshelf>,
+        <http://example.org/a_classroom>,
+        <http://example.org/a_writer>,
+        <http://example.org/book>,
+        <http://example.org/knowledge>,
+        <http://example.org/learning>,
+        <http://example.org/library>,
+        <http://example.org/pages>,
+        <http://example.org/reading>,
+        <http://example.org/the_shelf> .
+
+<http://example.org/knowledge> rdfs:label "knowledge" .
+
+<http://example.org/learning> rdfs:label "learning" .
+
+<http://example.org/library> rdfs:label "library" .
+
+<http://example.org/pages> rdfs:label "pages" .
+
+<http://example.org/reading> rdfs:label "reading" .
+
+<http://example.org/the_shelf> rdfs:label "the shelf" .
+

@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_bed> rdfs:label "a bed" .
+
+<http://example.org/a_chair> rdfs:label "a chair" .
+
+<http://example.org/a_feline> rdfs:label "a feline" .
+
+<http://example.org/a_table> rdfs:label "a table" .
+
+<http://example.org/a_vet> rdfs:label "a vet" .
+
+<http://example.org/animal> rdfs:label "animal" .
+
+<http://example.org/cat> a owl:Class ;
+    rdfs:label "cat" ;
+    rdfs:seeAlso <http://example.org/a_bed>,
+        <http://example.org/a_chair>,
+        <http://example.org/a_feline>,
+        <http://example.org/a_table>,
+        <http://example.org/a_vet>,
+        <http://example.org/animal>,
+        <http://example.org/cat>,
+        <http://example.org/catch_a_mouse>,
+        <http://example.org/climb_up_a_tree>,
+        <http://example.org/corner_a_mouse>,
+        <http://example.org/drink_water>,
+        <http://example.org/feline>,
+        <http://example.org/four_legs>,
+        <http://example.org/hunt_mice>,
+        <http://example.org/look_at_a_king>,
+        <http://example.org/milk_to_drink>,
+        <http://example.org/my_lap>,
+        <http://example.org/pet>,
+        <http://example.org/the_windowsill> .
+
+<http://example.org/catch_a_mouse> rdfs:label "catch a mouse" .
+
+<http://example.org/climb_up_a_tree> rdfs:label "climb up a tree" .
+
+<http://example.org/corner_a_mouse> rdfs:label "corner a mouse" .
+
+<http://example.org/drink_water> rdfs:label "drink water" .
+
+<http://example.org/feline> rdfs:label "feline" .
+
+<http://example.org/four_legs> rdfs:label "four legs" .
+
+<http://example.org/hunt_mice> rdfs:label "hunt mice" .
+
+<http://example.org/look_at_a_king> rdfs:label "look at a king" .
+
+<http://example.org/milk_to_drink> rdfs:label "milk to drink" .
+
+<http://example.org/my_lap> rdfs:label "my lap" .
+
+<http://example.org/pet> rdfs:label "pet" .
+
+<http://example.org/the_windowsill> rdfs:label "the windowsill" .
+

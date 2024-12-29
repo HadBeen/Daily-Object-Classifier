@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template , send_from_directory
 from src.object_classifier import classify_image
-from rdflib import Graph, URIRef, Literal
+from rdflib import Graph, URIRef, Literal, Namespace
 from rdflib.namespace import RDF, RDFS, OWL
+from requests.auth import HTTPBasicAuth
 import os
 import requests
 from io import BytesIO
@@ -29,31 +30,65 @@ def fetch_concept_details(concept):
 
         g = Graph()
 
-        ns = {
-            "ex": "http://example.org/"
-        }
+        # Define namespaces
+        ex = Namespace("http://example.org/")
+        g.bind("ex", ex)
+
+        concept_uri = ex[concept]
+
+        # Add the main concept as a class
+        g.add((concept_uri, RDF.type, OWL.Class))
+        g.add((concept_uri, RDFS.label, Literal(concept)))
 
         if 'edges' in data:
             for edge in data['edges']:
-                if 'end' in edge and 'label' in edge['end']:
-                    concept_label = edge['end']['label']
+                # Extract details from each edge
+                start_node = edge.get('start', {}).get('label', None)
+                end_node = edge.get('end', {}).get('label', None)
+                relation = edge.get('rel', {}).get('label', None)
 
-                    concept_uri = URIRef(f"http://example.org/{concept}")
-                    description_uri = URIRef(f"http://example.org/{concept_label.replace(' ', '_')}")
+                if start_node and end_node and relation:
+                    start_uri = ex[start_node.replace(" ", "_")]
+                    end_uri = ex[end_node.replace(" ", "_")]
+                    relation_uri = ex[relation.replace(" ", "_")]
 
-                    g.add((concept_uri, RDF.type, OWL.Class))
-                    g.add((concept_uri, RDFS.label, Literal(concept)))
-                    g.add((description_uri, RDFS.label, Literal(concept_label)))
-                    g.add((concept_uri, RDFS.seeAlso, description_uri))
+                    # Add nodes and relations to the graph
+                    g.add((start_uri, RDFS.label, Literal(start_node)))
+                    g.add((end_uri, RDFS.label, Literal(end_node)))
+                    g.add((relation_uri, RDFS.label, Literal(relation)))
+
+                    # Create relationships in RDF
+                    g.add((start_uri, relation_uri, end_uri))
 
         # Save RDF file to the server's directory
         rdf_filename = f"{concept}_description.ttl"
         rdf_file_path = os.path.join(app.config['UPLOAD_FOLDER_RDF'], rdf_filename)
         g.serialize(destination=rdf_file_path, format="turtle")
-        
+
         return rdf_file_path, rdf_filename
     else:
         return None, "Error fetching data"
+
+
+
+
+def upload_to_fuseki(file_path, fuseki_url, username=None, password=None):
+        
+        print("file path",file_path)
+        with open(file_path, 'r', encoding='utf-8') as rdf_file:
+            data = rdf_file.read()
+
+            print('here is the conteSnt : ',data)
+            headers = {'Content-Type': 'text/turtle;charset=utf-8'}
+            fuseki_url = 'http://localhost:3030/daily_objects/data'  # Replace with your dataset URL
+            response = requests.post(fuseki_url, data=data, headers=headers, auth=HTTPBasicAuth(username, password))
+
+            if response.status_code in [200, 204]:
+                print("RDF data uploaded successfully.")
+            else:
+                print(f"Failed to upload RDF data. Status code: {response.status_code}")
+                print(response.text)
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -105,6 +140,10 @@ def upload_image():
             if image:
                 annotated_image_path = os.path.join(app.config['UPLOAD_FOLDER'], "annotated_image.jpg")
                 image.save(annotated_image_path)
+
+            print("li nmdo as param",rdf_file_path)
+            upload_to_fuseki(descriptions[0], "http://localhost:3030/#/dataset/daily_objects", "admin", "C17MxdOss8cVBA5")
+            print('doooonnnee')
 
             return render_template("results.html", 
                                    detections=detections, 

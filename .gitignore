@@ -75,6 +75,9 @@ docs/_build/
 .pybuilder/
 target/
 
+#yolo 
+yolov5x.pt
+yolov5s.pt
 # Jupyter Notebook
 .ipynb_checkpoints
 
@@ -129,6 +132,7 @@ celerybeat.pid
 
 # Environments
 yolov5/
+static/
 .env
 .venv
 env/
@@ -170,3 +174,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+

@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/a_closet> rdfs:label "a closet" .
+
+<http://example.org/a_device_to_protect_something> rdfs:label "a device to protect something" .
+
+<http://example.org/esernyő> rdfs:label "esernyő" .
+
+<http://example.org/keeping_the_sun_off_you> rdfs:label "keeping the sun off you" .
+
+<http://example.org/keeping_you_dry> rdfs:label "keeping you dry" .
+
+<http://example.org/paraply> rdfs:label "paraply" .
+
+<http://example.org/protection_from_the_rain> rdfs:label "protection from the rain" .
+
+<http://example.org/shelter_from_rain> rdfs:label "shelter from rain" .
+
+<http://example.org/umbrella> a owl:Class ;
+    rdfs:label "umbrella" ;
+    rdfs:seeAlso <http://example.org/a_closet>,
+        <http://example.org/a_device_to_protect_something>,
+        <http://example.org/esernyő>,
+        <http://example.org/keeping_the_sun_off_you>,
+        <http://example.org/keeping_you_dry>,
+        <http://example.org/paraply>,
+        <http://example.org/protection_from_the_rain>,
+        <http://example.org/shelter_from_rain>,
+        <http://example.org/umbrella>,
+        <http://example.org/your_car> .
+
+<http://example.org/your_car> rdfs:label "your car" .
+

@@ -1,28 +1,81 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/bowl> a owl:Class ;
+ex:AtLocation rdfs:label "AtLocation" .
+
+ex:DistinctFrom rdfs:label "DistinctFrom" .
+
+ex:HasContext rdfs:label "HasContext" .
+
+ex:IsA rdfs:label "IsA" .
+
+ex:RelatedTo rdfs:label "RelatedTo" .
+
+ex:Synonym rdfs:label "Synonym" .
+
+ex:UsedFor rdfs:label "UsedFor" .
+
+ex:a_bowl rdfs:label "a bowl" ;
+    ex:AtLocation ex:the_cupboard ;
+    ex:UsedFor ex:hold_cereal,
+        ex:hold_mush,
+        ex:hold_peanuts,
+        ex:hold_spice,
+        ex:hold_sugar .
+
+ex:a_spoon rdfs:label "a spoon" ;
+    ex:AtLocation ex:bowl .
+
+ex:ciotola rdfs:label "ciotola" ;
+    ex:Synonym ex:bowl .
+
+ex:kugla rdfs:label "kugla" ;
+    ex:RelatedTo ex:bowl .
+
+ex:mangkuk rdfs:label "mangkuk" ;
+    ex:Synonym ex:bowl .
+
+ex:nest rdfs:label "nest" ;
+    ex:RelatedTo ex:bowl .
+
+ex:plate rdfs:label "plate" ;
+    ex:DistinctFrom ex:bowl ;
+    ex:RelatedTo ex:bowl .
+
+ex:salad_bowl rdfs:label "salad bowl" ;
+    ex:IsA ex:bowl .
+
+ex:soup rdfs:label "soup" ;
+    ex:RelatedTo ex:bowl .
+
+ex:غَلْيُون rdfs:label "غَلْيُون" ;
+    ex:Synonym ex:bowl .
+
+ex:โยนโบล์ rdfs:label "โยนโบล์" ;
+    ex:Synonym ex:bowl .
+
+ex:御碗 rdfs:label "御碗" ;
+    ex:Synonym ex:bowl .
+
+ex:鉢 rdfs:label "鉢" ;
+    ex:Synonym ex:bowl .
+
+ex:cricket rdfs:label "cricket" .
+
+ex:hold_cereal rdfs:label "hold cereal" .
+
+ex:hold_mush rdfs:label "hold mush" .
+
+ex:hold_peanuts rdfs:label "hold peanuts" .
+
+ex:hold_spice rdfs:label "hold spice" .
+
+ex:hold_sugar rdfs:label "hold sugar" .
+
+ex:the_cupboard rdfs:label "the cupboard" .
+
+ex:bowl a owl:Class ;
     rdfs:label "bowl" ;
-    rdfs:seeAlso <http://example.org/bowl>,
-        <http://example.org/cricket>,
-        <http://example.org/hold_cereal>,
-        <http://example.org/hold_mush>,
-        <http://example.org/hold_peanuts>,
-        <http://example.org/hold_spice>,
-        <http://example.org/hold_sugar>,
-        <http://example.org/the_cupboard> .
-
-<http://example.org/cricket> rdfs:label "cricket" .
-
-<http://example.org/hold_cereal> rdfs:label "hold cereal" .
-
-<http://example.org/hold_mush> rdfs:label "hold mush" .
-
-<http://example.org/hold_peanuts> rdfs:label "hold peanuts" .
-
-<http://example.org/hold_spice> rdfs:label "hold spice" .
-
-<http://example.org/hold_sugar> rdfs:label "hold sugar" .
-
-<http://example.org/the_cupboard> rdfs:label "the cupboard" .
+    ex:HasContext ex:cricket .
 

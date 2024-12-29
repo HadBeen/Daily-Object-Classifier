@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 
 def classify_image(image_file):
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5s.pt')
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5x.pt')
     
     # Read the uploaded image
     image = Image.open(image_file).convert("RGB")

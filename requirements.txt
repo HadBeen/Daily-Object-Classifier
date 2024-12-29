@@ -5,3 +5,4 @@ sparqlwrapper
 owlready2 
 pyshacl
 Pillow
+ultralytics

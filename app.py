@@ -89,6 +89,51 @@ def upload_to_fuseki(file_path, fuseki_url, username=None, password=None):
                 print(response.text)
 
 
+def query_fuseki(label):
+    sparql_query = f"""
+    PREFIX ex: <http://example.org/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+    SELECT ?subject ?predicate ?object
+    WHERE {{
+        ?subject ?predicate ?object .
+        ?subject rdfs:label "{label}" .
+    }}
+    """
+
+    fuseki_url = "http://localhost:3030/daily_objects/query"  # Replace with your dataset's query endpoint
+    headers = {"Content-Type": "application/sparql-query", "Accept": "application/json"}
+
+    response = requests.post(fuseki_url, data=sparql_query, headers=headers, auth=HTTPBasicAuth("admin", "C17MxdOss8cVBA5"))
+
+    if response.status_code == 200:
+        results = response.json()
+        rdf_data = []
+        for binding in results["results"]["bindings"]:
+            subject = binding["subject"]["value"]
+            predicate = binding["predicate"]["value"]
+            obj = binding["object"]["value"]
+            rdf_data.append((subject, predicate, obj))
+        return rdf_data
+    else:
+        print(f"Failed to query Fuseki. Status code: {response.status_code}")
+        print(response.text)
+        return None
+
+
+@app.route("/query", methods=["GET", "POST"])
+def query_rdf():
+    rdf_result = None
+    label = None
+
+    if request.method == "POST":
+        label = request.form.get("label")
+        if label:
+            # Query Fuseki for the RDF data of the label
+            rdf_result = query_fuseki(label)
+
+    return render_template("query.html", rdf_result=rdf_result, label=label)
+
 
 @app.route("/", methods=["GET", "POST"])
 def upload_image():
@@ -111,48 +156,35 @@ def upload_image():
             except Exception as e:
                 return f"Error processing URL: {e}"
 
-        # Fetch concept details for each detected class
+        # Initialize variables for RDF generation
         concept_details = {}
-        rdf_content = ""
-        rdf_filename = ""
-        
-        # For the first detection (or all detections if necessary)
+        generated_rdf_files = []
+
         if detections:
             for detection in detections:
                 class_name = detection['class']
-                descriptions = fetch_concept_details(class_name)
-                concept_details[class_name] = descriptions
-                
-                # Generate RDF content for preview
-                if descriptions:
-                    rdf_content += f"### {class_name} ###\n"
-                    for desc in descriptions:
-                        rdf_content += f"{desc}\n"
-            # Generate the RDF file to store
-            rdf_filename = "concept_details.ttl"
-            rdf_file_path = os.path.join(app.config['UPLOAD_FOLDER'], rdf_filename)
-            with open(rdf_file_path, 'w') as rdf_file:
-                rdf_file.write(rdf_content)
+                rdf_file_path, rdf_filename = fetch_concept_details(class_name)
+
+                # Save concept details and RDF file paths
+                if rdf_file_path:
+                    concept_details[class_name] = rdf_file_path
+                    generated_rdf_files.append(rdf_file_path)
 
             # Save the annotated image
             if image:
                 annotated_image_path = os.path.join(app.config['UPLOAD_FOLDER'], "annotated_image.jpg")
                 image.save(annotated_image_path)
 
-            print("li nmdo as param",rdf_file_path)
-            upload_to_fuseki(descriptions[0], "http://localhost:3030/#/dataset/daily_objects", "admin", "C17MxdOss8cVBA5")
-            print(descriptions[0])
-            print('doooonnnee')
+            # Upload all generated RDF files to Fuseki
+            for rdf_file in generated_rdf_files:
+                upload_to_fuseki(rdf_file, "http://localhost:3030/daily_objects/data", "admin", "C17MxdOss8cVBA5")
 
             return render_template("results.html", 
                                    detections=detections, 
                                    image_path=annotated_image_path, 
-                                   concept_details=concept_details, 
-                                   rdf_content=rdf_content,
-                                   rdf_filename=rdf_filename)
+                                   concept_details=concept_details)
 
     return render_template("index.html")
-
 
 
 app.run(debug=True)

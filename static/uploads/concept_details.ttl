@@ -1,3 +1,24 @@
-### bowl ###
-static/rdf_files\bowl_description.ttl
-bowl_description.ttl
+### chair ###
+static/rdf_files\chair_description.ttl
+chair_description.ttl
+### bed ###
+static/rdf_files\bed_description.ttl
+bed_description.ttl
+### potted plant ###
+static/rdf_files\potted_plant_description.ttl
+potted_plant_description.ttl
+### chair ###
+static/rdf_files\chair_description.ttl
+chair_description.ttl
+### frisbee ###
+static/rdf_files\frisbee_description.ttl
+frisbee_description.ttl
+### bed ###
+static/rdf_files\bed_description.ttl
+bed_description.ttl
+### person ###
+static/rdf_files\person_description.ttl
+person_description.ttl
+### dining table ###
+static/rdf_files\dining_table_description.ttl
+dining_table_description.ttl

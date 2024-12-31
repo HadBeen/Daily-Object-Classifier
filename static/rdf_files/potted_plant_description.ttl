@@ -1,38 +1,79 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/HousePlant_Potted> rdfs:label "HousePlant Potted" .
+ex:AtLocation rdfs:label "AtLocation" .
 
-<http://example.org/a_table> rdfs:label "a table" .
+ex:ExternalURL rdfs:label "ExternalURL" .
 
-<http://example.org/auction> rdfs:label "auction" .
+ex:FormOf rdfs:label "FormOf" .
 
-<http://example.org/container> rdfs:label "container" .
+ex:HasContext rdfs:label "HasContext" .
 
-<http://example.org/household_furnishings> rdfs:label "household furnishings" .
+ex:IsA rdfs:label "IsA" .
 
-<http://example.org/houseplant> rdfs:label "houseplant" .
+ex:RelatedTo rdfs:label "RelatedTo" .
 
-<http://example.org/ornament> rdfs:label "ornament" .
+ex:Synonym rdfs:label "Synonym" .
 
-<http://example.org/potted_plant> a owl:Class ;
+ex:a_potted_plant rdfs:label "a potted plant" ;
+    ex:AtLocation ex:a_table,
+        ex:the_windowsill .
+
+ex:potted_plants rdfs:label "potted plants" ;
+    ex:FormOf ex:potted_plant .
+
+ex:potteplante rdfs:label "potteplante" ;
+    ex:RelatedTo ex:potted_plant .
+
+ex:topfpflanze rdfs:label "topfpflanze" ;
+    ex:Synonym ex:potted_plant .
+
+ex:植え木 rdfs:label "植え木" ;
+    ex:Synonym ex:potted_plant .
+
+ex:植木 rdfs:label "植木" ;
+    ex:Synonym ex:potted_plant .
+
+ex:鉢植 rdfs:label "鉢植" ;
+    ex:Synonym ex:potted_plant .
+
+ex:鉢植え rdfs:label "鉢植え" ;
+    ex:Synonym ex:potted_plant .
+
+ex:鉢物 rdfs:label "鉢物" ;
+    ex:Synonym ex:potted_plant .
+
+ex:HousePlant_Potted rdfs:label "HousePlant Potted" .
+
+ex:a_table rdfs:label "a table" .
+
+ex:auction rdfs:label "auction" .
+
+ex:container rdfs:label "container" .
+
+ex:household_furnishings rdfs:label "household furnishings" .
+
+ex:houseplant rdfs:label "houseplant" ;
+    ex:RelatedTo ex:potted_plant .
+
+ex:ornament rdfs:label "ornament" .
+
+ex:shill rdfs:label "shill" .
+
+ex:slang rdfs:label "slang" .
+
+ex:the_windowsill rdfs:label "the windowsill" .
+
+ex:potted_plant a owl:Class ;
     rdfs:label "potted plant",
         "potted_plant" ;
-    rdfs:seeAlso <http://example.org/HousePlant_Potted>,
-        <http://example.org/a_table>,
-        <http://example.org/auction>,
-        <http://example.org/container>,
-        <http://example.org/household_furnishings>,
-        <http://example.org/houseplant>,
-        <http://example.org/ornament>,
-        <http://example.org/potted_plant>,
-        <http://example.org/shill>,
-        <http://example.org/slang>,
-        <http://example.org/the_windowsill> .
-
-<http://example.org/shill> rdfs:label "shill" .
-
-<http://example.org/slang> rdfs:label "slang" .
-
-<http://example.org/the_windowsill> rdfs:label "the windowsill" .
+    ex:ExternalURL ex:HousePlant_Potted ;
+    ex:HasContext ex:slang ;
+    ex:IsA ex:household_furnishings,
+        ex:ornament ;
+    ex:RelatedTo ex:auction,
+        ex:container,
+        ex:houseplant,
+        ex:shill .
 

@@ -3,9 +3,10 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import random
 
+
 def classify_image(image_file):
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5s.pt')
-    
+    print("ff helllllloooo d")
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)    
     # Read the uploaded image
     image = Image.open(image_file).convert("RGB")
     image_array = np.array(image)

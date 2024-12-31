@@ -1,20 +1,80 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/a_telephone> rdfs:label "a telephone" .
+ex:FormOf rdfs:label "FormOf" .
 
-<http://example.org/call> rdfs:label "call" .
+ex:HasContext rdfs:label "HasContext" .
 
-<http://example.org/cell_phone> a owl:Class ;
+ex:IsA rdfs:label "IsA" .
+
+ex:MannerOf rdfs:label "MannerOf" .
+
+ex:RelatedTo rdfs:label "RelatedTo" .
+
+ex:Synonym rdfs:label "Synonym" .
+
+ex:a_cell_phone rdfs:label "a cell phone" ;
+    ex:IsA ex:a_telephone .
+
+ex:cell_phones rdfs:label "cell phones" ;
+    ex:FormOf ex:cell_phone ;
+    ex:RelatedTo ex:cell_phone .
+
+ex:menelepon rdfs:label "menelepon" ;
+    ex:Synonym ex:cell_phone .
+
+ex:mobitel rdfs:label "mobitel" ;
+    ex:RelatedTo ex:cell_phone .
+
+ex:portable rdfs:label "portable" ;
+    ex:Synonym ex:cell_phone .
+
+ex:soittaa_matkapuhelimella rdfs:label "soittaa matkapuhelimella" ;
+    ex:Synonym ex:cell_phone .
+
+ex:téléphone_cellulaire rdfs:label "téléphone cellulaire" ;
+    ex:Synonym ex:cell_phone .
+
+ex:téléphone_mobile rdfs:label "téléphone mobile" ;
+    ex:Synonym ex:cell_phone .
+
+ex:κινητό rdfs:label "κινητό" ;
+    ex:RelatedTo ex:cell_phone .
+
+ex:ใช้มือถือ rdfs:label "ใช้มือถือ" ;
+    ex:Synonym ex:cell_phone .
+
+ex:ใช้มือถือโทร rdfs:label "ใช้มือถือโทร" ;
+    ex:Synonym ex:cell_phone .
+
+ex:ใช้มือถือโทรหา rdfs:label "ใช้มือถือโทรหา" ;
+    ex:Synonym ex:cell_phone .
+
+ex:ใช้โทรศัพท์มือถือ rdfs:label "ใช้โทรศัพท์มือถือ" ;
+    ex:Synonym ex:cell_phone .
+
+ex:ใช้โทรศัพท์มือถือโทรหา rdfs:label "ใช้โทรศัพท์มือถือโทรหา" ;
+    ex:Synonym ex:cell_phone .
+
+ex:けいたい rdfs:label "けいたい" ;
+    ex:RelatedTo ex:cell_phone .
+
+ex:携帯 rdfs:label "携帯" ;
+    ex:Synonym ex:cell_phone .
+
+ex:a_telephone rdfs:label "a telephone" .
+
+ex:call rdfs:label "call" .
+
+ex:cellular_telephone rdfs:label "cellular telephone" .
+
+ex:telephone rdfs:label "telephone" .
+
+ex:cell_phone a owl:Class ;
     rdfs:label "cell phone",
         "cell_phone" ;
-    rdfs:seeAlso <http://example.org/a_telephone>,
-        <http://example.org/call>,
-        <http://example.org/cell_phone>,
-        <http://example.org/cellular_telephone>,
-        <http://example.org/telephone> .
-
-<http://example.org/cellular_telephone> rdfs:label "cellular telephone" .
-
-<http://example.org/telephone> rdfs:label "telephone" .
+    ex:HasContext ex:telephone ;
+    ex:MannerOf ex:call ;
+    ex:Synonym ex:cellular_telephone .
 

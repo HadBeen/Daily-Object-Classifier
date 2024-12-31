@@ -78,7 +78,6 @@ def upload_to_fuseki(file_path, fuseki_url, username=None, password=None):
         with open(file_path, 'r', encoding='utf-8') as rdf_file:
             data = rdf_file.read()
 
-            print('here is the conteSnt : ',data)
             headers = {'Content-Type': 'text/turtle;charset=utf-8'}
             fuseki_url = 'http://localhost:3030/daily_objects/data'  # Replace with your dataset URL
             response = requests.post(fuseki_url, data=data, headers=headers, auth=HTTPBasicAuth(username, password))
@@ -129,7 +128,6 @@ def upload_image():
                     rdf_content += f"### {class_name} ###\n"
                     for desc in descriptions:
                         rdf_content += f"{desc}\n"
-
             # Generate the RDF file to store
             rdf_filename = "concept_details.ttl"
             rdf_file_path = os.path.join(app.config['UPLOAD_FOLDER'], rdf_filename)
@@ -143,6 +141,7 @@ def upload_image():
 
             print("li nmdo as param",rdf_file_path)
             upload_to_fuseki(descriptions[0], "http://localhost:3030/#/dataset/daily_objects", "admin", "C17MxdOss8cVBA5")
+            print(descriptions[0])
             print('doooonnnee')
 
             return render_template("results.html", 

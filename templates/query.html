@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query RDF</title>
+</head>
+<body>
+    <h1>Query RDF Data</h1>
+    <form method="POST">
+        <label for="label">Enter a label:</label>
+        <input type="text" id="label" name="label" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if label %}
+        <h2>Results for: {{ label }}</h2>
+        {% if rdf_result %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Predicate</th>
+                        <th>Object</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject, predicate, obj in rdf_result %}
+                        <tr>
+                            <td>{{ subject }}</td>
+                            <td>{{ predicate }}</td>
+                            <td>{{ obj }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No RDF data found for the label.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

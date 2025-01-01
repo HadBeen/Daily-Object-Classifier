@@ -1,19 +1,77 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/a_house> rdfs:label "a house" .
+ex:AtLocation rdfs:label "AtLocation" .
 
-<http://example.org/a_sink> rdfs:label "a sink" .
+ex:MannerOf rdfs:label "MannerOf" .
 
-<http://example.org/sink> a owl:Class ;
-    rdfs:label "sink" ;
-    rdfs:seeAlso <http://example.org/a_house>,
-        <http://example.org/a_sink>,
-        <http://example.org/sink>,
-        <http://example.org/the_kitchen>,
-        <http://example.org/the_sink> .
+ex:Synonym rdfs:label "Synonym" .
 
-<http://example.org/the_kitchen> rdfs:label "the kitchen" .
+ex:a_faucet rdfs:label "a faucet" ;
+    ex:AtLocation ex:the_sink .
 
-<http://example.org/the_sink> rdfs:label "the sink" .
+ex:a_hot_tap rdfs:label "a hot tap" ;
+    ex:AtLocation ex:a_sink .
+
+ex:a_kitchen_utensil rdfs:label "a kitchen utensil" ;
+    ex:AtLocation ex:the_sink .
+
+ex:a_soap_dish rdfs:label "a soap dish" ;
+    ex:AtLocation ex:the_sink .
+
+ex:a_water_spout rdfs:label "a water spout" ;
+    ex:AtLocation ex:the_sink .
+
+ex:behea_jo rdfs:label "behea jo" ;
+    ex:Synonym ex:sink .
+
+ex:endinsar rdfs:label "endinsar" ;
+    ex:Synonym ex:sink .
+
+ex:melendut rdfs:label "melendut" ;
+    ex:Synonym ex:sink .
+
+ex:menenggelamkan rdfs:label "menenggelamkan" ;
+    ex:Synonym ex:sink .
+
+ex:mengaram rdfs:label "mengaram" ;
+    ex:Synonym ex:sink .
+
+ex:menjatuhkan rdfs:label "menjatuhkan" ;
+    ex:Synonym ex:sink .
+
+ex:sartu rdfs:label "sartu" ;
+    ex:Synonym ex:sink .
+
+ex:settle rdfs:label "settle" ;
+    ex:MannerOf ex:sink .
+
+ex:sumergir rdfs:label "sumergir" ;
+    ex:Synonym ex:sink .
+
+ex:water rdfs:label "water" ;
+    ex:AtLocation ex:a_sink .
+
+ex:غَطَسَ rdfs:label "غَطَسَ" ;
+    ex:Synonym ex:sink .
+
+ex:倒れる rdfs:label "倒れる" ;
+    ex:Synonym ex:sink .
+
+ex:沈める rdfs:label "沈める" ;
+    ex:Synonym ex:sink .
+
+ex:a_house rdfs:label "a house" .
+
+ex:the_kitchen rdfs:label "the kitchen" .
+
+ex:a_sink rdfs:label "a sink" ;
+    ex:AtLocation ex:a_house,
+        ex:the_kitchen .
+
+ex:the_sink rdfs:label "the sink" .
+
+ex:sink a owl:Class ;
+    rdfs:label "sink" .
 

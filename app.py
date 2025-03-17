@@ -71,7 +71,7 @@ def fetch_concept_details(concept):
 
 
 
-
+# admin=C17MxdOss8cVBA5
 def upload_to_fuseki(file_path, fuseki_url, username=None, password=None):
         
         print("file path",file_path)
@@ -79,7 +79,7 @@ def upload_to_fuseki(file_path, fuseki_url, username=None, password=None):
             data = rdf_file.read()
 
             headers = {'Content-Type': 'text/turtle;charset=utf-8'}
-            fuseki_url = 'http://localhost:3030/daily_objects/data'  # Replace with your dataset URL
+            fuseki_url = 'http://localhost:3030/daily_objects/data'  
             response = requests.post(fuseki_url, data=data, headers=headers, auth=HTTPBasicAuth(username, password))
 
             if response.status_code in [200, 204]:
@@ -185,6 +185,15 @@ def upload_image():
                                    concept_details=concept_details)
 
     return render_template("index.html")
+@app.route('/view_rdf/<filename>')
+def view_rdf(filename):
+    rdf_file_path = os.path.join(app.config['UPLOAD_FOLDER_RDF'], filename)
+    if os.path.exists(rdf_file_path):
+        with open(rdf_file_path, 'r', encoding='utf-8') as file:
+            rdf_content = file.read()
+        return f"<pre>{rdf_content}</pre>"
+    else:
+        return "File not found", 404
 
 
 app.run(debug=True)

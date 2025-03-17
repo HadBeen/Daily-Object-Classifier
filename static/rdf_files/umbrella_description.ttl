@@ -1,34 +1,78 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/a_closet> rdfs:label "a closet" .
+ex:An_umbrella rdfs:label "An umbrella" ;
+    ex:IsA ex:a_device_to_protect_something .
 
-<http://example.org/a_device_to_protect_something> rdfs:label "a device to protect something" .
+ex:AtLocation rdfs:label "AtLocation" .
 
-<http://example.org/esernyő> rdfs:label "esernyő" .
+ex:Guarda_chuva rdfs:label "Guarda chuva" ;
+    ex:Synonym ex:umbrella .
 
-<http://example.org/keeping_the_sun_off_you> rdfs:label "keeping the sun off you" .
+ex:IsA rdfs:label "IsA" .
 
-<http://example.org/keeping_you_dry> rdfs:label "keeping you dry" .
+ex:PartOf rdfs:label "PartOf" .
 
-<http://example.org/paraply> rdfs:label "paraply" .
+ex:RelatedTo rdfs:label "RelatedTo" .
 
-<http://example.org/protection_from_the_rain> rdfs:label "protection from the rain" .
+ex:Synonym rdfs:label "Synonym" .
 
-<http://example.org/shelter_from_rain> rdfs:label "shelter from rain" .
+ex:UsedFor rdfs:label "UsedFor" .
 
-<http://example.org/umbrella> a owl:Class ;
+ex:an_umbrella rdfs:label "an umbrella" ;
+    ex:AtLocation ex:a_closet,
+        ex:your_car ;
+    ex:UsedFor ex:keeping_the_sun_off_you,
+        ex:keeping_you_dry,
+        ex:protection_from_the_rain,
+        ex:shelter_from_rain .
+
+ex:handle rdfs:label "handle" ;
+    ex:PartOf ex:umbrella .
+
+ex:perlindungan rdfs:label "perlindungan" ;
+    ex:Synonym ex:umbrella .
+
+ex:shade rdfs:label "shade" ;
+    ex:RelatedTo ex:umbrella .
+
+ex:こうもり傘 rdfs:label "こうもり傘" ;
+    ex:Synonym ex:umbrella .
+
+ex:妻折り傘 rdfs:label "妻折り傘" ;
+    ex:Synonym ex:umbrella .
+
+ex:蝙蝠 rdfs:label "蝙蝠" ;
+    ex:Synonym ex:umbrella .
+
+ex:雨がさ rdfs:label "雨がさ" ;
+    ex:Synonym ex:umbrella .
+
+ex:雨傘 rdfs:label "雨傘" ;
+    ex:Synonym ex:umbrella .
+
+ex:a_closet rdfs:label "a closet" .
+
+ex:a_device_to_protect_something rdfs:label "a device to protect something" .
+
+ex:esernyő rdfs:label "esernyő" .
+
+ex:keeping_the_sun_off_you rdfs:label "keeping the sun off you" .
+
+ex:keeping_you_dry rdfs:label "keeping you dry" .
+
+ex:paraply rdfs:label "paraply" ;
+    ex:Synonym ex:umbrella .
+
+ex:protection_from_the_rain rdfs:label "protection from the rain" .
+
+ex:shelter_from_rain rdfs:label "shelter from rain" .
+
+ex:your_car rdfs:label "your car" .
+
+ex:umbrella a owl:Class ;
     rdfs:label "umbrella" ;
-    rdfs:seeAlso <http://example.org/a_closet>,
-        <http://example.org/a_device_to_protect_something>,
-        <http://example.org/esernyő>,
-        <http://example.org/keeping_the_sun_off_you>,
-        <http://example.org/keeping_you_dry>,
-        <http://example.org/paraply>,
-        <http://example.org/protection_from_the_rain>,
-        <http://example.org/shelter_from_rain>,
-        <http://example.org/umbrella>,
-        <http://example.org/your_car> .
-
-<http://example.org/your_car> rdfs:label "your car" .
+    ex:Synonym ex:esernyő,
+        ex:paraply .
 

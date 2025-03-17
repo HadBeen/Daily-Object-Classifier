@@ -1,28 +1,83 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/a_dishwasher> rdfs:label "a dishwasher" .
+ex:A_cup rdfs:label "A cup" ;
+    ex:CapableOf ex:hold_liquids .
 
-<http://example.org/a_shelf> rdfs:label "a shelf" .
+ex:AtLocation rdfs:label "AtLocation" .
 
-<http://example.org/a_table> rdfs:label "a table" .
+ex:CapableOf rdfs:label "CapableOf" .
 
-<http://example.org/cup> a owl:Class ;
+ex:IsA rdfs:label "IsA" .
+
+ex:RelatedTo rdfs:label "RelatedTo" .
+
+ex:Synonym rdfs:label "Synonym" .
+
+ex:UsedFor rdfs:label "UsedFor" .
+
+ex:a_cup rdfs:label "a cup" ;
+    ex:AtLocation ex:a_dishwasher,
+        ex:a_shelf ;
+    ex:UsedFor ex:drinking,
+        ex:measuring_liquids .
+
+ex:aplicar_tazas rdfs:label "aplicar tazas" ;
+    ex:Synonym ex:cup .
+
+ex:copa rdfs:label "copa" ;
+    ex:Synonym ex:cup .
+
+ex:cups rdfs:label "cups" ;
+    ex:RelatedTo ex:cup .
+
+ex:drink rdfs:label "drink" ;
+    ex:RelatedTo ex:cup .
+
+ex:glass rdfs:label "glass" ;
+    ex:RelatedTo ex:cup .
+
+ex:mug rdfs:label "mug" ;
+    ex:RelatedTo ex:cup .
+
+ex:saucer rdfs:label "saucer" ;
+    ex:RelatedTo ex:cup .
+
+ex:secawan_penuh rdfs:label "secawan penuh" ;
+    ex:Synonym ex:cup .
+
+ex:tasse rdfs:label "tasse" ;
+    ex:Synonym ex:cup .
+
+ex:transfuse rdfs:label "transfuse" ;
+    ex:Synonym ex:cup .
+
+ex:ใส่ถ้วย rdfs:label "ใส่ถ้วย" ;
+    ex:Synonym ex:cup .
+
+ex:カップ rdfs:label "カップ" ;
+    ex:Synonym ex:cup .
+
+ex:杯子 rdfs:label "杯子" ;
+    ex:Synonym ex:cup .
+
+ex:a_dishwasher rdfs:label "a dishwasher" .
+
+ex:a_shelf rdfs:label "a shelf" .
+
+ex:a_table rdfs:label "a table" .
+
+ex:drinking rdfs:label "drinking" .
+
+ex:hold_liquids rdfs:label "hold liquids" .
+
+ex:hole rdfs:label "hole" .
+
+ex:measuring_liquids rdfs:label "measuring liquids" .
+
+ex:cup a owl:Class ;
     rdfs:label "cup" ;
-    rdfs:seeAlso <http://example.org/a_dishwasher>,
-        <http://example.org/a_shelf>,
-        <http://example.org/a_table>,
-        <http://example.org/cup>,
-        <http://example.org/drinking>,
-        <http://example.org/hold_liquids>,
-        <http://example.org/hole>,
-        <http://example.org/measuring_liquids> .
-
-<http://example.org/drinking> rdfs:label "drinking" .
-
-<http://example.org/hold_liquids> rdfs:label "hold liquids" .
-
-<http://example.org/hole> rdfs:label "hole" .
-
-<http://example.org/measuring_liquids> rdfs:label "measuring liquids" .
+    ex:AtLocation ex:a_table ;
+    ex:IsA ex:hole .
 

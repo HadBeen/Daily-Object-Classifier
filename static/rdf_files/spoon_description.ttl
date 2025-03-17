@@ -1,25 +1,76 @@
+@prefix ex: <http://example.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://example.org/Eating> rdfs:label "Eating" .
+ex:A_spoon rdfs:label "A spoon" ;
+    ex:IsA ex:a_utensil .
 
-<http://example.org/a_utensil> rdfs:label "a utensil" .
+ex:AtLocation rdfs:label "AtLocation" .
 
-<http://example.org/bowl> rdfs:label "bowl" .
+ex:IsA rdfs:label "IsA" .
 
-<http://example.org/dinner> rdfs:label "dinner" .
+ex:Synonym rdfs:label "Synonym" .
 
-<http://example.org/eating_ice_cream> rdfs:label "eating ice cream" .
+ex:UsedFor rdfs:label "UsedFor" .
 
-<http://example.org/lažica> rdfs:label "lažica" .
+ex:a_spoon rdfs:label "a spoon" ;
+    ex:AtLocation ex:bowl,
+        ex:dinner ;
+    ex:UsedFor ex:Eating,
+        ex:eating_ice_cream .
 
-<http://example.org/spoon> a owl:Class ;
+ex:camca rdfs:label "camca" ;
+    ex:Synonym ex:spoon .
+
+ex:cuiller rdfs:label "cuiller" ;
+    ex:Synonym ex:spoon .
+
+ex:cuillère rdfs:label "cuillère" ;
+    ex:Synonym ex:spoon .
+
+ex:dessert_spoon rdfs:label "dessert spoon" ;
+    ex:IsA ex:spoon .
+
+ex:golf-makila rdfs:label "golf-makila" ;
+    ex:Synonym ex:spoon .
+
+ex:mazza_da_golf_a_cucchiaio rdfs:label "mazza da golf a cucchiaio" ;
+    ex:Synonym ex:spoon .
+
+ex:secamca rdfs:label "secamca" ;
+    ex:Synonym ex:spoon .
+
+ex:skje rdfs:label "skje" ;
+    ex:Synonym ex:spoon .
+
+ex:spoonful rdfs:label "spoonful" ;
+    ex:Synonym ex:spoon .
+
+ex:spuuni rdfs:label "spuuni" ;
+    ex:Synonym ex:spoon .
+
+ex:ช้อน rdfs:label "ช้อน" ;
+    ex:Synonym ex:spoon .
+
+ex:匙 rdfs:label "匙" ;
+    ex:Synonym ex:spoon .
+
+ex:調羹 rdfs:label "調羹" ;
+    ex:Synonym ex:spoon .
+
+ex:Eating rdfs:label "Eating" .
+
+ex:a_utensil rdfs:label "a utensil" .
+
+ex:bowl rdfs:label "bowl" .
+
+ex:dinner rdfs:label "dinner" .
+
+ex:eating_ice_cream rdfs:label "eating ice cream" .
+
+ex:lažica rdfs:label "lažica" .
+
+ex:spoon a owl:Class ;
     rdfs:label "spoon" ;
-    rdfs:seeAlso <http://example.org/Eating>,
-        <http://example.org/a_utensil>,
-        <http://example.org/bowl>,
-        <http://example.org/dinner>,
-        <http://example.org/eating_ice_cream>,
-        <http://example.org/lažica>,
-        <http://example.org/spoon> .
+    ex:Synonym ex:lažica .
 

@@ -1,47 +1,69 @@
-Work description
+# Object Classification, RDF Storage, and ConceptNet Integration
 
-In this work you need to first study the ConceptNet Knowledge graph.
+This repository showcases an integrated system for object classification using YOLO, semantic knowledge retrieval using ConceptNet, and RDF storage with Apache Jena Fuseki. The system processes images, extracts object labels, queries ConceptNet for semantic context, and stores the data as RDF triples in Fuseki.
 
-Create your own RDF database (your own custom triple store) using one of the several open-source RDF triplestores in the list bellow to store the concepts and properties of the ConceptNet knowledge graph.
+## Features
 
-Implement the following logical program in python
+* **Object Classification** : Uses YOLO to detect and classify objects in images.
+* **Semantic Knowledge Retrieval** : Queries ConceptNet to enhance object understanding.
+* **RDF Storage & Querying** : Stores structured knowledge in Apache Jena Fuseki and allows SPARQL queries.
+* **Flask API** : Provides an interface for uploading images and retrieving RDF data.
+* **SPARQL-based Data Visualization** : Fetches and displays stored RDF triples.
 
-Implement a Yolo classifier that takes as input an image of a daily living object and provides a vector of class names.
+## Installation
 
-Transform the classification results into SPARQL Queries to extract from conceptnet the description of the image and store it in your RDF database.
+### Prerequisites
 
-Before storage check the consistency of your ontology using Pellet or another reasoner
+* Python
+* Docker (for running Apache Jena Fuseki)
+* Flask
+* OpenCV & YOLO
 
-How to manage the uncertainty in this case ?
+### Clone the Repository
 
-The following triple stores are widely recognized for their production readiness and performance.
+```bash
+git clone https://github.com/yourusername/your-repository.git
+cd your-repository
+```
 
-Apache Jena TDB:
+### Install Dependencies
 
-- Description: Part of the Apache Jena framework, TDB is a robust triplestore that supports SPARQL and is designed for large datasets.
-- Features: Supports RDF, RDFS, OWL, and SPARQL 1.1. It provides transaction support and can handle large-scale data.
+```bash
+pip install -r requirements.txt
+```
 
-Blazegraph:
+### Set Up Apache Jena Fuseki
 
-- Description: Known for its high performance and scalability, Blazegraph is suitable for both small and large datasets.
-- Features: Provides a full SPARQL 1.1 implementation, supports geospatial data, and offers graph analytics capabilities.
+Run Fuseki using Docker:
 
-GraphDB:
+```bash
+docker run -d -p 3030:3030 --name fuseki stain/jena-fuseki
+```
 
-Description: A highly scalable RDF triplestore with a focus on semantic graph data management.
+Alternatively, start Fuseki manually:
 
-Features: Supports reasoning, full-text search, and advanced analytics. It has a user-friendly interface and robust integration capabilities.
+```bash
+./fuseki-server --update --mem /dataset
+```
 
-Fuseki:
+## Usage
 
-- Description: Also part of the Apache Jena project, Fuseki is a SPARQL server that can run on top of TDB or other storage backends.
-- Features: Provides a RESTful interface, supports SPARQL queries, and allows for easy deployment.
+### 1. Start the Flask API
 
-RDF4J:
+```bash
+python app.py
+```
 
-- Description: A flexible framework for working with RDF data, RDF4J includes a triplestore that is suitable for various applications.
-- Features: Supports transaction management, SPARQL 1.1, and can be embedded in Java applications.
+### 2. Run a SPARQL Query on Fuseki
 
-Virtuoso (DBpedia)
+Example query to retrieve all triples:
 
-Stardog
+```sparql
+PREFIX ex: <http://example.org/>
+SELECT ?subject ?predicate ?object WHERE {
+    ?subject ?predicate ?object .
+}
+LIMIT 100
+```
+
+Run this in the Fuseki web UI at `http://localhost:3030/dataset.html`.
